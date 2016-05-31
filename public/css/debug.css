@@ -1,0 +1,42 @@
+body {
+	margin: 0px; 
+	padding: 0px; 
+	font-family: 'Trebuchet MS',verdana;"
+
+}
+
+.main {
+	overflow: auto;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+}
+
+.left {
+	width: 20%;
+	height: 100%;
+	vertical-align: top; 
+	background-color:  #999f8e;
+	position: fixed;
+	padding: 20px;
+	overflow: auto;
+	
+	
+}
+
+.right {
+	width: 80%;
+	height: 100%;
+	vertical-align: top; 
+	background-color:  #d2d8c7;
+	position: relative;
+	float: right;
+	padding: 20px;
+	
+} 
+
+
+
+
+
+

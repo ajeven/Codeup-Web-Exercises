@@ -1,0 +1,66 @@
+.container {
+	border-style: double;
+	border-color: black;
+	border-width: 10px;
+	padding: 20px;
+	background-color: white;
+	
+
+}
+
+body .container {
+	color: black;
+	background-image: url("/img/paper_bg.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	font-family: 'Amatic SC', serif;
+	
+
+}
+
+
+.img-circle {
+	width: 140px;
+	height: 140px;
+	border-style: double;
+	border-color: black;
+	border-width: 8px;
+	position: relative;
+	left: 10%;
+	top: 100px;
+
+}
+
+.color {
+	background-color: papayawhip;
+}
+
+.img { 
+	color: lightblue;
+	background-color: papayawhip;
+	list-style-image: block;
+	width: 40px;
+	height: 40px;
+
+}
+
+.gmail {
+	position: relative;
+	left: 100px;
+}
+
+.link {
+	position: relative;
+	top: -50px;
+}
+
+.github {
+	position: relative;
+	top:-50px;
+	right: 50px;
+}
+
+
+
+
+

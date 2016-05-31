@@ -1,0 +1,120 @@
+/* CSS BOX MODEL
+#box1 {
+	position: relative;
+	left: 30px;
+	background-color: orange;
+}
+
+#box2 {
+	position: relative;
+	left: 60px;
+	background-color: yellow;
+}
+
+#box3 {
+	position: relative;
+	left: 90px;
+	background-color: green;
+}
+
+#box4 {
+	position: relative;
+	left: 120px;
+	background-color: blue;
+}
+
+#box5 {
+	position: relative;
+	left: 150px;
+	background-color: violet
+}
+
+h1 {
+	color: purple;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+div {
+	border: 1px solid black;
+	height: 70px;
+	width: 160px; 
+	margin: 10px;
+	padding-left: 10px;
+	background-color: red;
+	font-weight: bold;
+	color: white;
+
+} */
+#ribbon {
+
+	position: fixed;
+	top: 0px;
+	right: 0px;   
+
+}
+
+div.box:nth-child(6) {
+	clear: left;
+}
+
+img.arrow {
+	position: absolute;
+	bottom: 60px;
+	left: 50px;
+}
+
+div.red {
+
+	
+	background-color: red;
+
+}
+
+div.orange {
+	
+	background-color: orange;
+}
+
+div.yellow {
+	
+	background-color: yellow;
+}
+
+div.green {
+	
+	background-color: green;
+	
+	
+}
+
+div.blue {
+	
+	background-color: blue;
+}
+
+div.violet {
+	
+	background-color: violet
+}
+
+h1 {
+	color: purple;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+div.box {
+	border: 1px solid black;
+	height: 60px;
+	width: 60px;
+	padding: 5px;
+	margin-bottom: 50px;
+	margin-top: 50px;
+	margin-right: 50px;
+	position: relative;
+	font-weight: bold;
+	color: white;
+	float: left;
+	font-size: 17px;
+}
