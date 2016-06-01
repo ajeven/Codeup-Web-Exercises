@@ -17,6 +17,13 @@
 							<li class="active"><a href="/php/register.php" target="_blank">Register</a></li> 
 							<!--	<li><a href="/php/login.php" target="_blank">Login</a></li> --> 
 						</ul>
+							<button class="btn btn-default btn-sm col-md-1" id="login">
+								<a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+							<div class="dropdown-menu" style="padding:17px;">
+								<form class="form" id="formLogin"> 
+									<input name="username" id="username" type="text" placeholder="Username"> 
+									<input name="password" id="password" type="password" placeholder="Password"><br>
+						</button>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Search">
