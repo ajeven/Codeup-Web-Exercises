@@ -1,0 +1,39 @@
+<!DOCTYPE HTML> 
+<html> 
+<head> 
+	<title>While Loop</title> 
+	<meta charset="utf-8">
+</head>
+	<body>
+		<script>
+			"use strict";
+
+				var allCones = Math.floor(Math.random() * 50) + 50;
+				var left ;
+
+					do {
+						var cones = Math.floor(Math.random() * 5) + 1;
+						console.log("I have this many cones " + allCones);
+						left = allCones - cones;
+						console.log ("I sold " + cones + " cones")
+						allCones = left
+						console.log("I have " + allCones + " left");
+
+							if (cones > allCones) {
+								console.log ("I do not have that many left")
+							}
+
+					} while (allCones > cones);
+							console.log ("Time to go home");
+
+
+					var i = 2
+
+						while (i <= 65536) {
+							console.log(i)
+							i *= 2
+						}
+
+		</script>
+	</body> 
+</html>
