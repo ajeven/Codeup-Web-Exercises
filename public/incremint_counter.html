@@ -1,0 +1,57 @@
+<!DOCTYPE HTML> 
+<html> 
+<head> 
+	<title>Exercise Incremint Counting</title> 
+	<meta charset="utf-8">
+</head>
+	<body>
+		<script>
+			"use strict";
+
+				var luckyNumber;
+				var i = 1;
+				var count0 = 0;
+				var count1 = 0;
+				var count2 = 0;
+				var count3 = 0;
+				var count4 = 0;
+				var count5 = 0;
+
+				for (i = 0; i < 100; i++) {
+					luckyNumber = Math.floor(Math.random()* 6);
+
+						switch (luckyNumber) {
+							case 0: 
+								count0++;
+								break;
+							case 1: 
+								count1++;
+								break;
+							case 2: 
+								count2++;
+								break;
+							case 3: 
+								count3++;
+								break;
+							case 4: 
+								count4++;
+								break;
+							case 5: 
+								count5++;
+								break;
+						}
+				}
+					console.log("0 appeared " + count0 " times.");
+					console.log("1 appeared " + count1 " times.");
+					console.log("2 appeared " + count2 " times.");
+					console.log("3 appeared " + count3 " times.");
+					console.log("4 appeared " + count4 " times.");
+					console.log("5 appeared " + count5 " times.");
+
+
+				
+
+								
+		</script>
+	</body> 
+</html>
