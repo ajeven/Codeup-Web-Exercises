@@ -9,8 +9,85 @@
 
 
 		<script>
-			var hello = "Hello Kings";
-			console.log(hello);
+			// var hello = "Hello Kings";
+			// console.log(hello);
+
+
+				var customerName = prompt("What is your name?")
+				var productName = [];
+				var productPrice = [];
+				var totalPrice = 0;
+				
+
+				do {
+					productName.push(prompt("Product name?"));
+					productPrice.push(prompt("Product price?"));
+					var cancel = confirm("More products?");
+				} while (cancel);
+
+				priceSum = function () {
+					for (i = 0; i < productName.length; i++) {
+						totalPrice = totalPrice + Number(productPrice[i]);
+					} 
+					return totalPrice;
+				}
+				discount = function (totalPrice) {
+						if (totalPrice >= 200) {
+							discountedTotalPrice = totalPrice * .65;
+						}
+						return totalPrice; 	
+				}
+				customerSaved = function () {
+					if (totalPrice > 0) {
+						saved = totalPrice - discountedTotalPrice;
+						}
+						return saved;
+				}
+
+
+
+
+				priceSum();
+				discount(totalPrice);
+				customerSaved();
+				console.log("$" + totalPrice + " price before discount.");
+				console.log("$" + discountedTotalPrice + " price after discount.");
+				console.log ("You saved $" + saved );
+				console.table([productName])
+				console.table([productPrice])
+
+
+				
+
+
+
+
+				// var discountCostRequirement = 200;
+				// var discount = 0.35;
+
+				// var cameronCostWithDiscount;
+				// if (cameronCost > discountCostRequirement) {
+				//     cameronCostWithDiscount = cameronCost - (cameronCost * discount);
+				// } else {
+				//     cameronCostWithDiscount = cameronCost;
+				// }
+				// console.log('Cameron: ' + cameronCost + ', ' + cameronCostWithDiscount);
+
+				// var ryanCostWithDiscount;
+				// if (ryanCost > discountCostRequirement) {
+				//     ryanCostWithDiscount = ryanCost - (ryanCost * discount);
+				// } else {
+				//     ryanCostWithDiscount = ryanCost;
+				// }
+				// console.log('Ryan: ' + ryanCost + ', ' + ryanCostWithDiscount);
+
+				// var georgeCostWithDiscount;
+				// if (georgeCost > discountCostRequirement) {
+				//     georgeCostWithDiscount = georgeCost - (georgeCost * discount);
+				// } else {
+				//     georgeCostWithDiscount = georgeCost;
+				// }
+				// console.log('Ryan: ' + georgeCost + ', ' + georgeCostWithDiscount);
 		</script>
 	</body> 
 </html>

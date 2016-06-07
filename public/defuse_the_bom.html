@@ -1,0 +1,34 @@
+<DOCTYPE HTML>
+<html>
+ <head>
+  <title> nums </title>
+ </head>
+ <script type = "text/javascript">
+var sum =0;
+var belowAvg = 0;
+var num = new Array(10);
+var sum = 0
+var i;
+
+for(i = 0; i<10; i++;) {
+    num[i] = eval(prompt("Enter a number"));
+    sum = sum + num[i];
+}
+
+avg = sum/10;
+    for (i=0; i<10; i++) {
+        if ( num[i] < avg)
+    {
+        belowAvg++;
+    }
+}
+
+alert ("average is" + avg);
+alert (belowAvg + "numbers are less than the average");
+
+</script>
+
+ <body>
+
+ </body>
+</html>
