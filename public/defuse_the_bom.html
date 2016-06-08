@@ -1,34 +1,66 @@
-<DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
- <head>
-  <title> nums </title>
- </head>
- <script type = "text/javascript">
-var sum =0;
-var belowAvg = 0;
-var num = new Array(10);
-var sum = 0
-var i;
+<head>
+	<meta charset="utf-8">
+	<title>Defuse the BOM</title>
+</head>
+<body>
 
-for(i = 0; i<10; i++;) {
-    num[i] = eval(prompt("Enter a number"));
-    sum = sum + num[i];
-}
+<h2 id="message">This BOM will self destruct in <span id="timer">5</span> seconds...</h2>
+<button id="defuser">Defuse the BOM</button>
 
-avg = sum/10;
-    for (i=0; i<10; i++) {
-        if ( num[i] < avg)
-    {
-        belowAvg++;
-    }
-}
+<script>
+(function() {
+	"use strict";
 
-alert ("average is" + avg);
-alert (belowAvg + "numbers are less than the average");
+	var detonationTimer = 5;
 
+	//interval counter .....
+		var count = 0;
+		var max = 5;
+		var interval = 1000; // interval time in milliseconds
+
+
+	// TODO: This function needs to be called once every second
+	var defuseThis = setInterval(function updateTimer() { 
+		if (count >= max) {
+				clearInterval(intervalId);
+				console.log("You failed to defuse in time!");
+			} else {
+				count++;
+				console.log("Running out of time....... " + count);
+			}	
+		if (detonationTimer == 0) {
+			alert("EXTERMINATE!");
+			document.body.innerHTML = "";
+		} else if (detonationTimer > 0) {
+			document.getElementById("timer").innerHTML = detonationTimer;
+		}
+
+		detonationTimer--;
+	}, interval);
+
+	// TODO: When this function runs, it needs to
+	// cancel the interval/timeout for updateTimer()
+	
+
+	function defuseTheBOM(event) {
+		clearInterval(defuseThis);
+		alert("You did it!");
+		
+	}
+		
+
+	
+
+	// Don't modify anything below this line!
+	//
+	// This causes the defuseTheBOM() function to be called
+	// when the "defuser" button is clicked.
+	// We will learn about events in the DOM lessons
+	var defuser = document.getElementById('defuser');
+	defuser.addEventListener('click', defuseTheBOM);
+})();
 </script>
-
- <body>
-
- </body>
+</body>
 </html>
