@@ -1,0 +1,151 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Calculator</title>
+	</head>
+	<body>
+		<div id="wrapper">
+			<h5>Calculator</h5>
+			<textarea readonly type="text" id="leftScreen"></textarea>
+			<textarea readonly type="text" id="centerScreen"></textarea>
+			<textarea readonly type="text" id="rightScreen"></textarea>
+
+			<div class="row1">
+				<button class="btn" data-value="1">1</button>
+				<button class="btn" data-value="2">2</button>
+				<button class="btn" data-value="3">3</button>
+				<button class="btn operate" data-value="+">+</button>
+			</div>
+			<div class="row2">
+				<button class="btn" data-value="4">4</button>
+				<button class="btn" data-value="5">5</button>
+				<button class="btn" data-value="6">6</button>
+				<button class="btn operate" data-value="-">-</button>
+			</div>
+			<div class="row3">
+				<button class="btn" data-value="7">7</button>
+				<button class="btn" data-value="8">8</button>
+				<button class="btn" data-value="9">9</button>
+				<button class="btn operate"  data-value="*">x</button>
+			</div>
+			<div class="row4">
+				<button class="btn" data-value="0">0</button>
+				<button class="btn operate"  data-value="=">=</button>
+				<button class="btn" class="decimal" data-value=".">.</button>
+			</div>
+			
+			<div class="row5">
+				<button class="btn" id="clear" data-value="">C</button>
+				<button disabled class="btn"></button>
+				<button disabled class="btn"></button>
+				<button class="btn operate" data-value="/" id="divide">/</button>
+			</div>
+			
+			
+		</div>
+		<style type="text/css">
+			h5 {
+				top: 20px;
+				text-align: center;
+			}
+			#wrapper {
+				position: absolute;
+				width: 217px;
+				height: 395px;
+				padding: 0px;
+				padding-left: 7px;
+				padding-top: 0px;
+				left: 10%;
+				border: 1px solid black;
+				background-color: papayawhip;	
+			}
+			#divide {
+				position: relative;
+				top: -17px;
+				left: 0px;
+			}
+			#decimal {
+				position: relative;
+				top: 0px;
+				left: 0px;
+				
+			}
+			#solve {
+				width: 105px;
+				left: 1px;
+			}
+
+			#clear {
+				position: relative;
+				top: -17px;
+				left: 0px;
+			}
+			.row1 {
+				position: relative;
+				float: left;
+				top: 183px;
+				left: -1px;
+			}
+			.row2 {
+				position: relative;
+				float: left;
+				top: 80px;
+				left: -2px;
+			}
+			.row3 {
+				position: relative;
+				float: left;
+				top: -24px;
+				left: -2px;
+			}
+			.row4 {
+				position: relative;
+				float: left;
+				top: 87px;
+				left: -2px;
+			}
+			.row5 {
+				position: relative;
+				float: left;
+				top: -177px;
+				left: -2px;
+			}			
+
+
+			.btn {
+				position: relative;
+				height: 50px;
+				width: 50px;
+				border: 1px groove brown;
+				background-color: ghostwhite;
+				
+				
+			}
+			#leftScreen {
+				position: relative;
+				height: 40px;
+				width: 80px;
+				top: 20px;
+			}
+			#centerScreen {
+				position: relative;
+				height: 40px;
+				width: 40px;
+				top: 20px;
+			}
+			#rightScreen {
+				position: relative;
+				height: 40px;
+				width: 80px;
+				top: 20px;
+			}
+		</style>
+		<script src="/js/calculator.js"></script>
+	</body>
+</html>
+
+
+
+
+
+

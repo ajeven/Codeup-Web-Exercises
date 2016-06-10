@@ -25,18 +25,21 @@
 			</style>
 			<script>
 			 (function() {
-				var myVar = setInterval(function(){ setColor() }, 100);
+				var myVar = setInterval(function(){ setColor() }, 50);
 				function setColor() {
 					var x = document.body;
 					x.style.backgroundColor = x.style.backgroundColor == "black" ? "ghostwhite" : "black";
 				}
 
-// 				// var divVar = setInterval(function(){ divColor() }, 100);
-// 				// function divColor() {
-// 				 var divvy = document.getElementById("div").innerHTML
-// 				// divvy.style.backgroundColor = divvy.style.backgroundColor == "red" ? "green" : "red";
-// 				// }
-// console.log(divvy)
+				// var divVar = setInterval(function(){divColor}, 50);
+				// function divColor() {
+				// 	var color = "#";
+				// 	var letters = ['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0'];
+				// 	color += letters[Math.floor(Math.random() * letters.length)];
+				// 	var strobe =document.getElementById("div")
+				// 	strobe.style.color = color;
+				// }
+
 
 				})();
 
