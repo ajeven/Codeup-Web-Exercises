@@ -6,9 +6,9 @@
 	<body>
 		<div id="wrapper">
 			<h5>Calculator</h5>
-			<textarea readonly type="text" id="leftScreen"></textarea>
-			<textarea readonly type="text" id="centerScreen"></textarea>
-			<textarea readonly type="text" id="rightScreen"></textarea>
+			<input readonly type="text" id="leftScreen"></input>
+			<input readonly type="text" id="centerScreen"></input>
+			<input readonly type="text" id="rightScreen"></input>
 
 			<div class="row1">
 				<button class="btn" data-value="1">1</button>
@@ -26,18 +26,18 @@
 				<button class="btn" data-value="7">7</button>
 				<button class="btn" data-value="8">8</button>
 				<button class="btn" data-value="9">9</button>
-				<button class="btn operate"  data-value="*">x</button>
+				<button class="btn operate"  data-value="x">x</button>
 			</div>
 			<div class="row4">
 				<button class="btn" data-value="0">0</button>
-				<button class="btn operate"  data-value="=">=</button>
-				<button class="btn" class="decimal" data-value=".">.</button>
+				<button id="solve"  data-value="=">=</button>
+				<button class="btn" id="period" data-value=".">.</button>
 			</div>
 			
 			<div class="row5">
-				<button class="btn" id="clear" data-value="">C</button>
-				<button disabled class="btn"></button>
-				<button disabled class="btn"></button>
+				<button  id="clear" data-value="">Clear</button>
+				<button id="back">Delete</button>
+				<button class="btn operate" id="squared" data-value="^2">^2</button>
 				<button class="btn operate" data-value="/" id="divide">/</button>
 			</div>
 			
@@ -45,8 +45,11 @@
 		</div>
 		<style type="text/css">
 			h5 {
-				top: 20px;
+				position: relative;
+				top: 11px;
 				text-align: center;
+				color: #FF6699;
+
 			}
 			#wrapper {
 				position: absolute;
@@ -56,12 +59,12 @@
 				padding-left: 7px;
 				padding-top: 0px;
 				left: 10%;
-				border: 1px solid black;
-				background-color: papayawhip;	
+				border: 3px solid black;
+				background-color: #303030;	
 			}
 			#divide {
 				position: relative;
-				top: -17px;
+				top: -15px;
 				left: 0px;
 			}
 			#decimal {
@@ -71,20 +74,17 @@
 				
 			}
 			#solve {
-				width: 105px;
-				left: 1px;
-			}
-
-			#clear {
 				position: relative;
-				top: -17px;
-				left: 0px;
+				height: 50px;
+				width: 105px;
+				border: 3px groove #33FFFF;
+				background-color: ghostwhite;
 			}
 			.row1 {
 				position: relative;
 				float: left;
 				top: 183px;
-				left: -1px;
+				left: -2px;
 			}
 			.row2 {
 				position: relative;
@@ -102,44 +102,67 @@
 				position: relative;
 				float: left;
 				top: 87px;
-				left: -2px;
+				left: -3px;
 			}
 			.row5 {
 				position: relative;
 				float: left;
-				top: -177px;
+				top: -162px;
 				left: -2px;
 			}			
-
-
 			.btn {
 				position: relative;
 				height: 50px;
 				width: 50px;
-				border: 1px groove brown;
-				background-color: ghostwhite;
-				
-				
+				border: 3px groove #33FFFF;
+				background-color: ghostwhite;			
+			}
+			.operate {
+				background-color: #E1E1E1;
 			}
 			#leftScreen {
 				position: relative;
 				height: 40px;
 				width: 80px;
 				top: 20px;
+				border: 3px solid #006600;
+				padding: 5px;
 			}
 			#centerScreen {
 				position: relative;
 				height: 40px;
 				width: 40px;
 				top: 20px;
+				border: 3px solid #006600;
+				padding: 5px;
 			}
 			#rightScreen {
 				position: relative;
 				height: 40px;
 				width: 80px;
 				top: 20px;
+				border: 3px solid #006600;
+				padding: 5px;
 			}
-		</style>
+			#back {
+				position: relative;
+				top: -15px;
+				height: 50px;
+				width: 50px;
+				border: 3px groove #33FFFF;
+			}
+			#clear {
+				position: relative;
+				top: -15px;
+				height: 50px;
+				width: 50px;
+				border: 3px groove #33FFFF;
+			}
+			#squared {
+				position: relative;
+				top: -15px;
+			}
+					</style>
 		<script src="/js/calculator.js"></script>
 	</body>
 </html>
