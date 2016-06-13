@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Google Maps</title>
+		<style>
+		#map {
+			width: 770px;
+			height: 481px;
+		}
+		</style>
+	</head>
+	<body>
+
+		<div id="map"></div>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKF2GyWWZMULMmqcIAIPm7b9nh6WqyHVc">
+		</script> <script type="text/javascript">
+	(function() {
+		"use strict";
+var address = "307 Exchange Pl New Orleans LA 70130"
+var geocoder = new google.maps.Geocoder();
+var green = {lat:29.954693, lng:-90.067018};
+
+
+
+geocoder.geocode({ "address": address }, function(results, status) {
+
+   // Check for a successful result
+   if (status == google.maps.GeocoderStatus.OK) {
+
+	   // Recenter the map over the address
+	   map.setCenter(results[0].geometry.location);
+   } else {
+
+	   // Show an error message with the status if our request fails
+	   alert("Geocoding was not successful - STATUS: " + status);
+   }
+});
+var marker = new google.maps.Marker({
+	position: green,
+	map: map
+});
+// Set our map options
+var mapOptions = {
+	// Set the zoom level
+	zoom: 19,
+
+	// This sets the center of the map at our location
+	center: {
+		lat:  29.954693,
+		lng: -90.067018
+		}
+	};
+
+		// Render the map
+		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	})();
+		</script>
+
+
+	</body>
+</html>
