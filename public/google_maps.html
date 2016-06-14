@@ -13,47 +13,68 @@
 
 		<div id="map"></div>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKF2GyWWZMULMmqcIAIPm7b9nh6WqyHVc">
-		</script> <script type="text/javascript">
-	(function() {
-		"use strict";
-var address = "307 Exchange Pl New Orleans LA 70130"
-var geocoder = new google.maps.Geocoder();
-var green = {lat:29.954693, lng:-90.067018};
+		</script> 
+		<script type="text/javascript">
+			(function() {
+			"use strict";
+				var address = "307 Exchange Pl New Orleans LA 70130";
+				// Set our map options
+				var mapOptions = {
+					// Set the zoom level
+					zoom: 14,
+
+					// This sets the center of the map at our location
+					center: {
+						lat:  29.9546691,
+						lng: -90.0670780
+					}
+				};
+				// Render the map
+				var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+				var geocoder = new google.maps.Geocoder();
+				//first food spot
+				var green = {lat:29.954691, lng:-90.0670480};
+				var marker = new google.maps.Marker({
+					position: green,
+					animation: google.maps.Animation.DROP,
+					icon: "/img/food_marker.png",					
+					map: map
+				});
+				var infowindow = new google.maps.InfoWindow({
+					content: "<h4>Green Goddess</h4><p>Hours: 11:00am till 9:00pm on Wednesday - Sunday</p><p>Phone: 504-301-3347</p><h4>Recommended Dish</h4><p>Shroom Gravy & Biscuits Tea-smoked wild mushrooms in cream gravy over sweet potato biscuits, grits on the side.</p><li>Vegan Options</li><li>Great Atmosphere</li>"
+				});
+					geocoder.geocode({ "address": address }, function(results, status) {
+					   // Check for a successful result
+					   if (status == google.maps.GeocoderStatus.OK) {
+						   // Recenter the map over the address
+						   map.setCenter(results[0].geometry.location);
+					   } else {
+						   // Show an error message with the status if our request fails
+						   alert("Geocoding was not successful - STATUS: " + status);
+					   }
+						});
+					marker.addListener("click", function() {
+						infowindow.open(map, marker);
+					});
+					//second food spot
+				var duMonde = {lat:29.9575282, lng:-90.0618275};
+				var marker1 = new google.maps.Marker({
+					position: duMonde,
+					animation: google.maps.Animation.DROP,
+					icon: "/img/food_marker.png",					
+					map: map
+				});
+				var infowindow1 = new google.maps.InfoWindow({
+					content: "<h4>Cafee Du Monde</h4><p>Open 24/7</p><p>Phone: (504) 525-4544</p><li>Chicory Coffee</li><li>Beignets</li>"
+				});
+					marker1.addListener("click", function() {
+						infowindow1.open(map, marker1);
+					});
 
 
-
-geocoder.geocode({ "address": address }, function(results, status) {
-
-   // Check for a successful result
-   if (status == google.maps.GeocoderStatus.OK) {
-
-	   // Recenter the map over the address
-	   map.setCenter(results[0].geometry.location);
-   } else {
-
-	   // Show an error message with the status if our request fails
-	   alert("Geocoding was not successful - STATUS: " + status);
-   }
-});
-var marker = new google.maps.Marker({
-	position: green,
-	map: map
-});
-// Set our map options
-var mapOptions = {
-	// Set the zoom level
-	zoom: 19,
-
-	// This sets the center of the map at our location
-	center: {
-		lat:  29.954693,
-		lng: -90.067018
-		}
-	};
-
-		// Render the map
-		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-	})();
+			})();			
+						
+						
 		</script>
 
 
