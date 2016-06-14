@@ -21,7 +21,7 @@
 				// Set our map options
 				var mapOptions = {
 					// Set the zoom level
-					zoom: 14,
+					zoom: 12,
 
 					// This sets the center of the map at our location
 					center: {
@@ -70,6 +70,21 @@
 					marker1.addListener("click", function() {
 						infowindow1.open(map, marker1);
 					});
+					//third food spot
+					var shaya = {lat:29.9212043, lng:-90.0996791};
+				var marker2 = new google.maps.Marker({
+					position: shaya,
+					animation: google.maps.Animation.DROP,
+					icon: "/img/food_marker.png",					
+					map: map
+				});
+				var infowindow2 = new google.maps.InfoWindow({
+					content: "<h4>Shaya</h4><p>Open: Everyday from 11am-10pm</p><p>Phone: (504) 891-4213</p><li>Modern Israeli cuisine</li>"
+				});
+					marker2.addListener("click", function() {
+						infowindow2.open(map, marker2);
+					});
+
 
 
 			})();			
