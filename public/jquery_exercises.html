@@ -9,9 +9,9 @@
 			<div id="wrapper" class="omega">
 				<p id="para">Fancy list incomming....</p>
 					<ol id ="ordered">
-						<li class="item">Blue</li>
-						<li class="item">Red</li>
-						<li class="item">Green</li>
+						<li class="item" id="codeup">Blue</li>
+						<li class="item codeup">Red</li>
+						<li class="item codeup">Green</li>
 					</ol>
 			</div>
 
@@ -20,19 +20,7 @@
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
 		$(document).ready(function() {
-			alert( 'The DOM has finished loading!' );
-		});
-
-		$(document).ready(function(){
-						//$ == getElementById
-			var $hello = $("#hello");
-			console.log($hello.html())
-		});
-		$(document).ready(function(){
-			var $ordered = $("#ordered");
-							//$ordered.html() will show the <li> with html tags
-							//$ordered.text() will show just the Items inside the list
-			console.log($ordered.html())
+			$(".codeup").css("border", "solid 1px red");
 		});
 	</script>
 		</body>
