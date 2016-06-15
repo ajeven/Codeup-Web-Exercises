@@ -4,6 +4,31 @@
 	<title>JQuery FAQ</title>
 </head>
 	<dl>
+		<h1>FAQs</h1>
+		<h3>Lost Maples</h3>
+		<ul>
+			<li class=" bold">$6 Daily Admission</li>
+			<li>Phone Reservations: (512)389-8900</li>
+			<li>Address: 37221 F.M. 187
+				Vanderpool, Tx 78885</li>
+			<li>Offers Ranger Programs</li>
+		</ul>
+		<h3>Blanco</h3>
+		<ul>
+			<li class=" bold">$4 Daily Admission</li>
+			<li>Phone Reservations: (512)389-8900</li>
+			<li>Address: 101 Park Road 23
+				Blanco, Tx 78606</li>
+			<li>Canoes, Tube rental</li>
+		</ul>
+		<h3>Pedernales Falls</h3>
+		<ul>
+			<li class=" bold">$6 Daily Admission</li>
+			<li>Phone Reservations: (512)389-8900</li>
+			<li>Address: 2585 Park Road 6026
+				Johnson City, Tx 78636</li>
+			<li>Horse riding trail</li>
+		</ul>
 		<dt>What is a National Park?</dt>
 		<dd class="invisible">National Parks are substantial tracts of land, sometimes remote, with wide open spaces large enough to provide the public with opportunities for outdoor recreation. National Parks are designated because of their landscape quaility, wildlife and their values as a recreational resource.</dd>
 
@@ -36,8 +61,15 @@
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
 		$("#btn").click(function(){
-		$("dd").toggleClass("invisible");
+			$("dd").toggleClass("invisible");
 		});
+		$("ul").children(".bold").css("font-weight", "bold");
+		$("li").click(function(){
+			$(this).parent().addClass("invisible");
+		})
+		$("h3").click(function(){
+			$(this).next().toggleClass("invisible")
+		})
 	</script>
 </body>
 </html>
