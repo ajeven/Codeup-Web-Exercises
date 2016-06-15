@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery FAQ</title>
+</head>
+	<dl>
+		<dt>What is a National Park?</dt>
+		<dd class="invisible">National Parks are substantial tracts of land, sometimes remote, with wide open spaces large enough to provide the public with opportunities for outdoor recreation. National Parks are designated because of their landscape quaility, wildlife and their values as a recreational resource.</dd>
+
+		<dt>Why were the National Parks created?</dt>
+		<dd class="invisible">The National Parks were created as part of the post World War II re-establishment process and aimed to bring long-term protection to areas of beautiful countryside that were highly valued for physical and spiritual refreshment.</dd>
+
+		<dt>What are the National Park purposes?</dt>
+		<dd class="invisible">To conserve and enhance the natural beauty, wildlife and cultural heritage of the National Parks.
+		To promote opportunities for the public understanding and enjoyment of the special qualities of the Parks</dd>
+
+		<dt>Why is it important to protect National Parks?</dt>
+		<dd class="invisible">National Parks are important and special areas covering 10% of the land area in England and Wales.  They protect vital landscapes and wildlife habitats, are important places where people live and work, and provide a focus for recreation and tourism for millions of visitors each year.</dd>
+
+		<dt>How are National Parks managed?</dt>
+		<dd class="invisible">National Park Authorities (NPAs) are the bodies charged with the achievement of National Park purposes. They are members of the local government family as well as being independent, special purpose authorities established to act in the best interests of the National Parks and to encourage others to do the same. The NPAs and the Broads Authority are funded by Defra and the Welsh Assembly Government.</dd>
+
+		<dt>Who owns the land in National Parks?</dt>
+		<dd class="invisible">Although some land within the Parks is managed by the National Park Authority, National Park status does not automatically signify national ownership of the land as in other countries such as the USA. Within a National Park the majority of land is owned by farmers and other private landowners including conservation organisations such as the National Trust.</dd>
+
+		<dt>When were the National Parks created?</dt>
+		<dd class="invisible">The first National Parks were created in 1951, the latest addition to the National Park family was the South Downs in 2010.</dd>
+
+	</dl>
+	<button id="btn" type="submit">Click Me for Answers</button>
+	<style>
+		.invisible {
+			display: none;
+		}
+	</style>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+		$("#btn").click(function(){
+		$("dd").toggleClass("invisible");
+		});
+	</script>
+</body>
+</html>
