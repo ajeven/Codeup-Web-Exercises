@@ -20,10 +20,21 @@
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
 		$(document).ready(function() {
-			$("li").css("font-size", "20px");
-			$("*").css("border", "1px solid red")
-			var $hello = $("h1").html();
-			alert($hello);
+			$("h1").click(function(){
+				$(this).css("background-color", "red")
+			});
+			$("p").dblclick(function(){
+				$(this).css("font-size", "18px")
+			})
+			$("li").hover(
+				function(){
+					$(this).css("background-color", "red")
+				},
+				function(){
+					$(this).css("background-color", "white")
+				}
+			);
+			
 		});
 	</script>
 		</body>
