@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Konami Code</title>
+</head>
+
+	<h1>Konami Code</h1>
+	<div><p>Please enter the Konami code.</p>
+		<span>Just press enter when you are done</span>
+		<style>
+			.red {
+				color: red;
+			}
+		</style>
+                                     
+	<!-- 38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13  -->
+
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+		var i = 0;
+		function setColor() {
+			var x = document.body;
+			x.style.backgroundColor = x.style.backgroundColor == "black" ? "ghostwhite" : "black";
+		} 
+		$(document).keydown(function(){		
+				var keyCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+
+				if (keyCode[i] == event.keyCode) {
+					i++;
+				} else {
+					i = 0;
+					document.write("<h1>TRY AGAIN</h1><img src ='/img/skull.jpg'>");
+				}
+				if (keyCode.length == i) {
+					var strobe = setInterval(function(){ setColor() }, 50);
+					
+				} 
+		 })
+	</script>
+</body>
+</html>
+
+
