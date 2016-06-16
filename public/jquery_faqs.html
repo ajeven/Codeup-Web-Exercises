@@ -6,7 +6,7 @@
 	<dl>
 		<h1>FAQs</h1>
 		<h3>Lost Maples</h3>
-		<ul>
+		<ul class="invisible">
 			<li class=" bold">$6 Daily Admission</li>
 			<li>Phone Reservations: (512)389-8900</li>
 			<li>Address: 37221 F.M. 187
@@ -14,7 +14,7 @@
 			<li>Offers Ranger Programs</li>
 		</ul>
 		<h3>Blanco</h3>
-		<ul>
+		<ul class="invisible">
 			<li class=" bold">$4 Daily Admission</li>
 			<li>Phone Reservations: (512)389-8900</li>
 			<li>Address: 101 Park Road 23
@@ -22,7 +22,7 @@
 			<li>Canoes, Tube rental</li>
 		</ul>
 		<h3>Pedernales Falls</h3>
-		<ul>
+		<ul class="invisible">
 			<li class=" bold">$6 Daily Admission</li>
 			<li>Phone Reservations: (512)389-8900</li>
 			<li>Address: 2585 Park Road 6026
@@ -61,14 +61,14 @@
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
 		$("#btn").click(function(){
-			$("dd").toggleClass("invisible");
+			$("dd").toggle("invisible");
 		});
 		$("ul").children(".bold").css("font-weight", "bold");
 		$("li").click(function(){
-			$(this).parent().addClass("invisible");
+			$(this).parent().hide("invisible");
 		})
 		$("h3").click(function(){
-			$(this).next().toggleClass("invisible")
+			$(this).next().show("invisible")
 		})
 	</script>
 </body>
