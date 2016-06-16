@@ -61,14 +61,14 @@
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
 		$("#btn").click(function(){
-			$("dd").toggle("invisible");
+			$("dd").fadeToggle("invisible");
 		});
 		$("ul").children(".bold").css("font-weight", "bold");
 		$("li").click(function(){
-			$(this).parent().hide("invisible");
+			$(this).parent().fadeOut("invisible");
 		})
 		$("h3").click(function(){
-			$(this).next().show("invisible")
+			$(this).next().fadeIn("invisible")
 		})
 	</script>
 </body>
