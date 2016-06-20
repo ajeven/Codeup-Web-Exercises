@@ -47,14 +47,15 @@ h1 {
 	left: -14px;
 	border: solid 1px grey;
 }
-
 </style>
+<script src="/js/moment.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKF2GyWWZMULMmqcIAIPm7b9nh6WqyHVc">
 </script> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
 <script>
 (function() {
 	"use strict";
+	//google map API
 	var mapOptions = {
 		zoom: 10,
 		center: {
@@ -70,9 +71,6 @@ h1 {
 		map: map,
 		animation: google.maps.Animation.DROP
 	});
-
-	
-
 	//weatherMap Stuff
 	$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
 		APPID: "923c1f57471f9bce07564f89b1c5cebf",
@@ -84,15 +82,15 @@ h1 {
 	var getWeather = ("");
 	data.list.forEach(function(element, i) {
 
-		getWeather = ("<p>Temperature: " + Math.round(data.list[i].temp.max) + "&deg;/" + Math.round(data.list[i].temp.min) + "&deg;</p><img src=http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png>" + "<p>Windspeed: " + Math.round(data.list[i].speed) + "</p>" + "<p>Humidity: " + data.list[i].humidity + "</p>");
+		getWeather = (moment(element.dt*1000).format("MMM Do") + "<p>Temperature: " + Math.round(data.list[i].temp.max) + "&deg;/" + Math.round(data.list[i].temp.min) + "&deg;</p><img src=http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png>" + "<p>Windspeed: " + Math.round(data.list[i].speed) + "</p>" + "<p>Humidity: " + data.list[i].humidity + "</p>");
 		$("#day" + i).html(getWeather);
 	})
 	});
-
 	google.maps.event.addListener(marker, "dragend", function(event) {
 		document.getElementById("latitude").value = event.latLng.lat();
 		document.getElementById("longitude").value = event.latLng.lng();
 	});
+	var date = new Date();
 	$("#button").on("click", function(){
 		var latitude = parseFloat($("#latitude").val());
 		var longitude = parseFloat($("#longitude").val());
@@ -112,7 +110,7 @@ h1 {
 		$("#longitude").val("")
 		var getWeather = ("");
 		data.list.forEach(function(element, i) {
-		getWeather = ("<p>Temperature: " + Math.round(data.list[i].temp.max) + "&deg;/" + Math.round(data.list[i].temp.min) + "&deg;</p><img src=http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png>" + "<p>Windspeed: " + Math.round(data.list[i].speed) + "</p>" + "<p>Humidity: " + data.list[i].humidity + "</p>");
+		getWeather = (moment(element.dt*1000).format("MMM Do") + "<p>Temperature: " + Math.round(data.list[i].temp.max) + "&deg;/" + Math.round(data.list[i].temp.min) + "&deg;</p><img src=http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png>" + "<p>Windspeed: " + Math.round(data.list[i].speed) + "</p>" + "<p>Humidity: " + data.list[i].humidity + "</p>");
 		$("#day" + i).html(getWeather);
 	});
 	});
