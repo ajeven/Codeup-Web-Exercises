@@ -17,45 +17,106 @@
 			</div>
 		</div>
 	</div>
+		<input id="latitude" type="text" hidden>
+		<input id="longitude" type="text" hidden>
+		<button id="button" class="btn btn-primary" type="button">Update Map</button>
+	<div id="map-canvas">
+	</div>
 <style>
 body {
 	padding-left: 100px;
 	padding-top: 20px;
 	padding-right: 100px;
+	background-color: lightblue;
 }
 .col-xs-4 {
 	text-align: center;
 	border: solid 1px grey;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	background-color: papayawhip;
+	
 }
 h1 {
 	text-align: center;
 }
-.row {
-	background-color: lightblue;
+#map-canvas {
+	width: 994px;
+	height: 400px;
+	position: relative;
+	left: -14px;
+	border: solid 1px grey;
 }
 
 </style>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKF2GyWWZMULMmqcIAIPm7b9nh6WqyHVc">
+</script> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
 <script>
 (function() {
 	"use strict";
+	var mapOptions = {
+		zoom: 10,
+		center: {
+			lat: 29.426791,
+			lng: -98.489602
+		}
+	};
+	var downTownSA = {lat:29.426791, lng: -98.489602}
+	var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+	var marker = new google.maps.Marker({
+		draggable: true,
+		position: downTownSA,
+		map: map,
+		animation: google.maps.Animation.DROP
+	});
+
+	
+
+	//weatherMap Stuff
 	$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
 		APPID: "923c1f57471f9bce07564f89b1c5cebf",
 		q: "San Antonio, TX",
-		// id: 4726206,
 		cnt: 3,
 		units: "imperial"
 	}).done(function(data) {
-	console.log(data);
 	$(".row col-xs-4").html();
 	var getWeather = ("");
 	data.list.forEach(function(element, i) {
-		getWeather = ("<p>Windspeed: " + Math.round(data.list[i].speed) + "</p><p>Humidity: " + data.list[i].humidity + "</p><p>Temperature: " + Math.round(data.list[i].temp.max) + "/" + Math.round(data.list[i].temp.min) + "&deg;</p><img src=http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png>");
+
+		getWeather = ("<p>Temperature: " + Math.round(data.list[i].temp.max) + "&deg;/" + Math.round(data.list[i].temp.min) + "&deg;</p><img src=http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png>" + "<p>Windspeed: " + Math.round(data.list[i].speed) + "</p>" + "<p>Humidity: " + data.list[i].humidity + "</p>");
 		$("#day" + i).html(getWeather);
 	})
-	
-	
 	});
+
+	google.maps.event.addListener(marker, "dragend", function(event) {
+		document.getElementById("latitude").value = event.latLng.lat();
+		document.getElementById("longitude").value = event.latLng.lng();
+	});
+	$("#button").on("click", function(){
+		var latitude = parseFloat($("#latitude").val());
+		var longitude = parseFloat($("#longitude").val());
+		$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+		APPID: "923c1f57471f9bce07564f89b1c5cebf",
+		lat: latitude,
+		lon: longitude,
+		cnt: 3,
+		units: "imperial"
+	}).done(function(data) {
+		map.setCenter({
+			zoom: 10,
+			lat: latitude,
+			lng: longitude
+		});
+		$("#latitude").val("")
+		$("#longitude").val("")
+		var getWeather = ("");
+		data.list.forEach(function(element, i) {
+		getWeather = ("<p>Temperature: " + Math.round(data.list[i].temp.max) + "&deg;/" + Math.round(data.list[i].temp.min) + "&deg;</p><img src=http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png>" + "<p>Windspeed: " + Math.round(data.list[i].speed) + "</p>" + "<p>Humidity: " + data.list[i].humidity + "</p>");
+		$("#day" + i).html(getWeather);
+	});
+	});
+	})
 })();
 </script>
 
