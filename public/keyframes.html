@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Keyframes</title>
+	<style>
+		@keyframes bounce {
+			0% { bottom: 100%;}
+			50% {bottom: 0; width: 100px; height: 100px;}
+			100% {bottom: 100%}
+		}
+		@keyframes moveLeft {
+			from { left: 0; }
+			to { left: 100%; }
+		}
+		@keyframes moveRight {
+			from { right: 0; }
+			to { right: 100%; }
+		}
+		.ball {
+			position: absolute;
+			height: 200px;
+			width: 200px;
+			border-radius: 100%;
+			background-color: red;
+			animation:bounce 2s linear infinite,
+				moveLeft 10s linear infinite;
+		}
+		.blue {
+			position: absolute;
+			border-radius: 100%;
+			height: 100px;
+			width: 100px;
+			background-color: blue;
+			animation:bounce 2s linear infinite,
+				moveRight 5s linear infinite;
+		}
+		.orange {
+			position: absolute;
+			border-radius: 100%;
+			height: 100px;
+			width: 100px;
+			background-color: orange;
+			left: 45%;
+			animation:bounce 2s linear infinite;
+		}
+		.square {
+			border: 1px solid red;
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			bottom: 0;
+			left: 0;
+			background-color: burlywood;
+			animation: moveLeft 2s linear infinite; 
+		}
+	</style>
+</head>
+<body>
+	<div class="ball"></div>
+	<div class="blue"></div>
+	<div class="orange"></div>
+	<div class="square"></div>
+</body>
+</html>
