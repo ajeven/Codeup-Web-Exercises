@@ -53,7 +53,9 @@ var solution = function () {
 		centerScreen.value = null;
 		rightScreen.value = null;
 	} else if (centerScreen.value == "/" && rightScreen.value == 0) {
-		leftScreen = "Does not compute"
+		leftScreen.value = "im going";
+		centerScreen.value = "to";
+		rightScreen.value = "break";
 	} else if (centerScreen.value == "/") {
 		leftScreen.value = (parseFloat(leftScreen.value)) / (parseFloat(rightScreen.value));
 		centerScreen.value = null;
