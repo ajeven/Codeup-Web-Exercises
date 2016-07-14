@@ -1,5 +1,9 @@
 <?php
-$favoriteThings = ['Books', 'Cars', 'Games', 'Food', 'Television'];
+function pageController(){
+	$data =[];
+	
+	$favoriteThings = ['Books', 'Cars', 'Games', 'Food', 'Television'];
+}
 
 ?>
 <!DOCTYPE html>
