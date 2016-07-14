@@ -1,11 +1,11 @@
 <?php
 function pageController() {
 	$data = [];
-	$data['adjectives'] = ['last', 'old', 'red', 'silver', 'same', 'able', 'important', 'kind', 'smart', 'ugly'];
-	$data['nouns'] = ['paper', 'soil', 'wallet', 'star', 'socks', 'child', 'place', 'bag', 'pizza', 'elbow'];
-	$first = $adjectives[array_rand($adjectives, 1)];
-	$second = $nouns[array_rand($nouns, 1)];
-return $data;
+	$adjectives = ['last', 'old', 'red', 'silver', 'same', 'able', 'important', 'kind', 'smart', 'ugly'];
+	$nouns = ['paper', 'soil', 'wallet', 'star', 'socks', 'child', 'place', 'bag', 'pizza', 'elbow'];
+	$data['first'] = $adjectives[array_rand($adjectives, 1)];
+	$data['second'] = $nouns[array_rand($nouns, 1)];
+	return $data;
 }
 extract(pageController());
 ?>
