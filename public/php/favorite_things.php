@@ -1,10 +1,11 @@
 <?php
 function pageController(){
-	$data =[];
+	$data = [];
+	$data['favoriteThings'] = ['Books', 'Cars', 'Games', 'Food', 'Television'];
 	
-	$favoriteThings = ['Books', 'Cars', 'Games', 'Food', 'Television'];
+	return $data;
 }
-
+extract(pageController());
 ?>
 <!DOCTYPE html>
 <html>
