@@ -20,7 +20,7 @@ function pageController() {
 </head>
 <body>
 	<h1 class="header">Number counter: <span><?= $number; ?></span></h1>
-		<button class="btn btn-info"><a href="?number=<?= $number+ 1 ?>">up</a></button>
-		<button class="btn btn-info"><a href="?number=<?= $number- 1 ?>">down</a></button>
+		<a href="?number=<?= $number+ 1 ?>"><button class="btn btn-info">up</button></a>
+		<a href="?number=<?= $number- 1 ?>"><button class="btn btn-info">down</button></a>
 </body>
 </html>
