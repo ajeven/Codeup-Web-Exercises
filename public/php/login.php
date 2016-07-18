@@ -1,5 +1,8 @@
 <?php
 function pageController() {
+	session_start();
+	$_SESSION['user'] = "Guest";
+	$_SESSION["logged_in_user"] = session_id();
 	$data = [];
 	$data['action'] = '';
 	$data['message'] = '';
@@ -7,13 +10,14 @@ function pageController() {
 		if ($_POST['user'] == "guest" && $_POST['password'] == "password") {
 			header('Location: authorized.php');
 			exit();
+			$_SESSION['logged_in_user'] == true;
 		} else {
 			if ($_POST['user'] != "guest") {
-				$message = "Incorrect usernamer.\\nTry Again.";
+				$message = "Incorrect usernamer or password.\\nTry Again.";
 				echo "<script>alert('$message');</script>";
 				echo "<style> input.username { background-color: yellow; } </style>";
 			} elseif ($_POST['password'] != "password") {
-				$message = "Incorrect password.\\nTry Again.";
+				$message = "Incorrect password or username.\\nTry Again.";
 				echo "<script>alert('$message');</script>";
 				echo "<style> input.password { background-color: yellow; } </style>";
 			}
