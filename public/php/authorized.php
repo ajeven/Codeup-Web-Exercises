@@ -3,6 +3,7 @@ function pageController() {
 	session_start();
 	$data['action'] = '';
 		if (isset($_SESSION['logged_in_user']) && $_SESSION['logged_in_user'] == true) {
+		
 		} else {
 			header ('Location: login.php');
 			exit();
