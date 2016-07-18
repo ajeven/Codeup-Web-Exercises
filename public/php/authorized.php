@@ -7,7 +7,7 @@
 .header {
 	position: relative;
 	left: 40%;
-	top: 20%;
+	top: 20px;
 }
 </style>
 </head>

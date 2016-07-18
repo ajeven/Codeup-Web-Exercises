@@ -11,11 +11,11 @@ function pageController() {
 			if ($_POST['user'] != "guest") {
 				$message = "Incorrect usernamer.\\nTry Again.";
 				echo "<script>alert('$message');</script>";
-				echo "<style> input.username { background-color: maroon; } </style>";
+				echo "<style> input.username { background-color: yellow; } </style>";
 			} elseif ($_POST['password'] != "password") {
 				$message = "Incorrect password.\\nTry Again.";
 				echo "<script>alert('$message');</script>";
-				echo "<style> input.password { background-color: maroon; } </style>";
+				echo "<style> input.password { background-color: yellow; } </style>";
 			}
 		}
 	}

@@ -11,7 +11,7 @@
     <h1>List of Items</h1>
     <ul>
     <?php foreach ($allItems as $item): ?>
-        <li><?php echo $item; ?></li>
+        <li><?php echo htmlspecialchars(strip_tags($item)); ?></li>
     <?php endforeach; ?>
     </ul>
 
