@@ -1,9 +1,10 @@
 <?php
+require_once 'functions.php';
 function pageController() {
 	$data = [];
 
-	if (isset($_GET['hit'])) {
-		$data['hit'] = $_GET['hit'];
+	if (isset($_REQUEST['hit'])) {
+		$data['hit'] = $_REQUEST['hit'];
 	} else {
 		$data['hit'] = 0;
 	} 

@@ -1,4 +1,5 @@
 <?php
+require_once 'functions.php';
 function pageController() {
 	session_start();
 	$_SESSION['user'] = "Guest";
@@ -13,7 +14,7 @@ function pageController() {
 			$_SESSION['logged_in_user'] == true;
 		} else {
 			if ($_POST['user'] != "guest") {
-				$message = "Incorrect usernamer or password.\\nTry Again.";
+				$message = "Incorrect username or password.\\nTry Again.";
 				echo "<script>alert('$message');</script>";
 				echo "<style> input.username { background-color: yellow; } </style>";
 			} elseif ($_POST['password'] != "password") {

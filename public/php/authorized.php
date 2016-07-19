@@ -1,4 +1,5 @@
 <?php
+require_once 'functions.php';
 function pageController() {
 	session_start();
 	$data['action'] = '';

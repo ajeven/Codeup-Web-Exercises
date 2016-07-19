@@ -3,7 +3,10 @@ function pageController() {
 	session_start();
 	$data = [];
 	if (isset($_SESSION['randomNumber'])) {
-		
+		$guess = isset($_GET['guess']);
+		$low = isset($_GET['low']);
+		$high = isset($_GET['high']);
+		$awesome = isset($_GET['awesome']);
 	} elseif (!isset($_SESSION['randomNumber'])) {
 		$_SESSION['randomNumber'] = mt_rand(1, 100);
 	}
