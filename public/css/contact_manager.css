@@ -1,0 +1,33 @@
+body {
+	background-image: url("/img/deathrow.png");
+	background-repeat: no-repeat;
+	background-size: 100%, 100%;
+	background-color: red;
+	color: ghostwhite;
+}
+table.list {
+	background-color: ghostwhite;
+	opacity: .75;
+	color: black;
+}
+span {
+	color: ghostwhite;
+}
+span.glyphicon-search {
+	color: red;
+}
+form.search {
+	opacity: .75;
+}
+form.add {
+	opacity: .75;
+}
+div.image {
+	position: relative;
+	left: 30%;
+	width: 100px;
+	height: 100px;
+	background-image: url("/img/gold_record.png");
+	background-repeat: round;
+	border-radius: 100%;
+}

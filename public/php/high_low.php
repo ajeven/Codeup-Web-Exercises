@@ -2,16 +2,11 @@
 function pageController() {
 	session_start();
 	$data = [];
-	if (isset($_SESSION['randomNumber'])) {
-		$guess = isset($_GET['guess']);
-		$low = isset($_GET['low']);
-		$high = isset($_GET['high']);
-		$awesome = isset($_GET['awesome']);
-	} elseif (!isset($_SESSION['randomNumber'])) {
+	if (!isset($_SESSION['randomNumber'])) {
 		$_SESSION['randomNumber'] = mt_rand(1, 100);
-	}
+	} 
 	if (isset($_POST['guess'])) {
-		$data['guess'] = $_POST['guess'];
+		$data['guess'] = $_GET['guess'];
 	if ($data['guess'] > $_SESSION['randomNumber']){
 		$data['low'] = "Lower!";
 	} else if ($data['guess'] < $_SESSION['randomNumber']){
@@ -57,11 +52,11 @@ extract(pageController());
 				<!-- Place the user's feedback here (HIGHER, LOWER or GOOD GUESS!)  -->
 			</div>
 			<div class="alert">
-				<?php if ($guess > $_SESSION['randomNumber']): ?>
+				<?php if ($_GET['guess'] > $_SESSION['randomNumber']): ?>
 					<p><?= $low ?></p>
-				<?php elseif ($guess < $_SESSION['randomNumber']): ?>	
+				<?php elseif ($_GET['guess'] < $_SESSION['randomNumber']): ?>	
 					<p><?= $high ?></p>
-				<?php elseif ($guess == $_SESSION['randomNumber']): ?>
+				<?php elseif ($_GET['guess'] == $_SESSION['randomNumber']): ?>
 					<p><?= $awesome ?></p>
 				<?php endif; ?>
 			</div>
