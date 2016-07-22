@@ -1,10 +1,10 @@
 <?php
-require_once 'functions.php';
+require_once '../source/auth.php';
 function pageController() {
 	session_start();
 	$data['action'] = '';
-		if (isset($_SESSION['logged_in_user']) && $_SESSION['logged_in_user'] == true) {
-		
+		if (Auth::check() == true) {
+			echo "<script>alert('Hello {$_SESSION['user']}')</script>";
 		} else {
 			header ('Location: login.php');
 			exit();

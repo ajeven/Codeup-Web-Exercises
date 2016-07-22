@@ -34,7 +34,18 @@ function pageController() {
 </head>
 <body>
 	<h1><?= $hit ?></h1>
-	<a href="/php/ping.php?hit=<?= $hit +1 ?>"><button class="btn btn-info">swing</button></a>
-	<a href="/php/ping.php?hit=<?= $hit =0 ?>"><button class="btn btn-info">swing</button></a>
+	<a href="/php/ping.php?hit=<?= $hit +1 ?>"><button class="btn btn-info swing" data-value="1">swing</button></a>
+	<a href="/php/ping.php?hit=<?= $hit =0 ?>"><button class="btn btn-info swing" data-value="0">swing</button></a>
+	<script>
+		document.GetElementsByClassName("swing");
+		function hitOrMiss() {
+			if (data-value = 1) {
+				alert("you hit it!");
+			} else {
+				alert("you missed it!");
+			}
+		}
+		swing.addEventListener("click", hitOrMiss, false)
+	</script>
 </body>
 </html>

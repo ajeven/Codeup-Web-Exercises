@@ -1,23 +1,23 @@
 <?php
-require_once 'functions.php';
+require_once '../source/auth.php';
 function pageController() {
 	session_start();
-	$_SESSION['user'] = "Guest";
+	$_SESSION['user'] = "Alan";
 	$_SESSION["logged_in_user"] = session_id();
 	$data = [];
 	$data['action'] = '';
 	$data['message'] = '';
 	if ($_POST) {
-		if ($_POST['user'] == "guest" && $_POST['password'] == "password") {
+		Auth::attempt(Input::get('user'), Input::get('password'));
+		if (Auth::check()) {
 			header('Location: authorized.php');
 			exit();
-			$_SESSION['logged_in_user'] == true;
 		} else {
-			if ($_POST['user'] != "guest") {
+			if (Input::get('user') != "Alan") {
 				$message = "Incorrect username or password.\\nTry Again.";
 				echo "<script>alert('$message');</script>";
 				echo "<style> input.username { background-color: yellow; } </style>";
-			} elseif ($_POST['password'] != "password") {
+			} elseif (Input::get('password') != "password") {
 				$message = "Incorrect password or username.\\nTry Again.";
 				echo "<script>alert('$message');</script>";
 				echo "<style> input.password { background-color: yellow; } </style>";

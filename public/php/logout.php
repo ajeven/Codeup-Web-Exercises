@@ -1,12 +1,9 @@
 <?php
-require_once 'functions.php';
+require_once '../source/auth.php';
 function pageController() {
-	session_start();
-	session_unset();
-	session_destroy();
+	Auth::logout();
 	header ('Location: login.php');
 	exit();
-
 }
 pageController();
 ?>
