@@ -1,13 +1,14 @@
 <?php
-require_once 'functions.php';
+require_once '../source/Input.php';
 function pageController() {
 	$data = [];
-
-	if (isset($_REQUEST['hit'])) {
-		$data['hit'] = $_REQUEST['hit'];
+	//using the functions from object Input.
+	if (Input::has('hit')) {
+		$data['hit'] = Input::get('hit');
 	} else {
 		$data['hit'] = 0;
 	}
+	
 
 	return $data; 
 }
@@ -33,7 +34,7 @@ function pageController() {
 </head>
 <body>
 	<h1><?= $hit ?></h1>
-	<a href="/php/pong.php?hit=<?= $hit +1 ?>"><button class="btn btn-default">hit</button></a>
-	<a href="/php/pong.php?hit=<?= $hit =0 ?>"><button class="btn btn-default">hit</button></a>
+	<a href="/php/pong.php?hit=<?= $hit +1 ?>"><button class="btn btn-default">swing</button></a>
+	<a href="/php/pong.php?hit=<?= $hit =0 ?>"><button class="btn btn-default">swing</button></a>
 </body>
 </html>
