@@ -21,5 +21,5 @@ foreach ($parks as $key => $park) {
    
     $dbc->exec($query);
 
-    echo "Inserted ID: " . $dbc->lastInsertId() . PHP_EOL;
+    echo "Inserted ID: " . $dbc->lastInsertId() . "\n";
 }
