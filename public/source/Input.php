@@ -16,6 +16,9 @@ class Input
 		}
 	}
 
+	public static function isPost() {
+		return $_POST;
+	}
 	/**
 	 * Get a requested value from either $_POST or $_GET
 	 *

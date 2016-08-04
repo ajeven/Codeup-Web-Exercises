@@ -12,14 +12,20 @@ $parks = [
     ['name' => 'Isle Royale',  'location' => 'Michigan',    'date_established' => '1940/04/03', 'area_in_acres' => '571790.11'],
     ['name' => 'Joshua Tree',  'location' => 'California',  'date_established' => '1994/10/31', 'area_in_acres' => '789745.47'],
     ['name' => 'Olympic',      'location' => 'Washington',  'date_established' => '1938/06/29', 'area_in_acres' => '922650.86'],
-    ['name' => 'Shenandoah',   'location' => 'Virginia',    'date_established' => '1926/05/22', 'area_in_acres' => '199045.23'],
+    ['name' => 'Shenandoah',   'location' => 'Virginia',    'date_established' => '1926/05/22', 'area_in_acres' => '199045.23']
 ];
 
+$stmt = $dbc->prepare('INSERT INTO national_parks (name, location, date_established, area_in_acres) 
+    VALUES (:name, :location, :date_established, :area_in_acres)');
+
+
 foreach ($parks as $key => $park) {
-    $query = "INSERT INTO national_parks (name, location, date_established, area_in_acres) 
-    VALUES ('{$parks[$key]['name']}', '{$parks[$key]['location']}', '{$parks[$key]['date_established']}', '{$parks[$key]['area_in_acres']}')";
+    $stmt->bindValue(':name', $parks[$key]['name'], PDO::PARAM_STR);
+    $stmt->bindValue(':location', $parks[$key]['location'], PDO::PARAM_STR);
+    $stmt->bindValue(':date_established', $parks[$key]['date_established'], PDO::PARAM_STR);
+    $stmt->bindValue(':area_in_acres', $parks[$key]['area_in_acres'], PDO::PARAM_STR);
    
-    $dbc->exec($query);
+    $stmt->execute();
 
     echo "Inserted ID: " . $dbc->lastInsertId() . "\n";
 }
