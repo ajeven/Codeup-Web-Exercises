@@ -15,9 +15,25 @@ class Input
 			return false;
 		}
 	}
-
-	public static function isPost() {
+	public static function isPost()
+	{
 		return $_POST;
+	}
+	public static function getString($key)
+	{
+		if (!is_string($key))
+		{
+			throw new exception ('This field requires a string input');
+		}
+		return self::get($key);
+	}
+	public static function getNumber($key)
+	{
+		if (!is_string($key))
+		{
+			throw new exception ('This field requires numeric input');
+		}
+		return self::get($key);
 	}
 	/**
 	 * Get a requested value from either $_POST or $_GET

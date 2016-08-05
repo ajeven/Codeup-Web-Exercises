@@ -5,11 +5,12 @@ function pageController($dbc)
 {	
 	
 	if (Input::isPost()) {
-		$name = Input::get('name');
-		$description = Input::get('description');
-		$location = Input::get('location');
+		$name = Input::getString('name');
+		$description = Input::getString('description');
+		$location = Input::getString('location');
 		$date_established = Input::get('date_established');
-		$area_in_acres = Input::get('area_in_acres');
+		$area_in_acres = Input::getNumber('area_in_acres');
+		
 
 		$sql= 'INSERT INTO national_parks (name, description, location, date_established, area_in_acres)
 			VALUES (:name, :description, :location, :date_established, :area_in_acres)';
