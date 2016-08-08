@@ -15,25 +15,28 @@ class Input
 			return false;
 		}
 	}
-	public static function isPost()
-	{
-		return $_POST;
-	}
+
 	public static function getString($key)
 	{
-		if (!is_string($key))
+		$value = Self::get($key);
+		if (!is_string($value))
 		{
-			throw new exception ('This field requires a string input');
+			throw new exception ('The value of $key should be a string');
 		}
-		return self::get($key);
+		return trim($value);
 	}
-	public static function getNumber($key)
+	public static function getNumber($key, $default = 0)
 	{
-		if (!is_string($key))
+		$value = Self::get($key, $default);
+		if (!is_numeric($key))
 		{
-			throw new exception ('This field requires numeric input');
+			throw new exception ('The value of $key should be a number');
 		}
-		return self::get($key);
+		return floatval($value);
+	}
+	public static function isPost()
+	{
+		return !empty($_POST);
 	}
 	/**
 	 * Get a requested value from either $_POST or $_GET
