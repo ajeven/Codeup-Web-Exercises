@@ -1,4 +1,7 @@
-<?php 
+<?php
+class InvalidInputException extends Input { }
+class EmptyInputException extends InvalidInputException { }
+
 class Input
 {
 	/**
@@ -19,10 +22,16 @@ class Input
 	public static function getString($key)
 	{
 		$value = Self::get($key);
-		if (!is_string($value))
+		 if (!is_string($key)) 
 		{
-			throw new exception ('The value of $key should be a string');
+			throw new InvalidInputException('$key must be a string!');
 		}
+
+		if (empty($firstName)) 
+		{
+			throw new EmptyInputException('$key was an empty string!');
+		}
+		
 		return trim($value);
 	}
 	public static function getNumber($key, $default = 0)
@@ -30,7 +39,12 @@ class Input
 		$value = Self::get($key, $default);
 		if (!is_numeric($key))
 		{
-			throw new exception ('The value of $key should be a number');
+			throw new InvalidInputException('$key must be a number!');
+		}
+
+		if (empty($firstName)) 
+		{
+			throw new EmptyInputException('$key was empty!');
 		}
 		return floatval($value);
 	}

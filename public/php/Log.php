@@ -16,11 +16,11 @@ class Log {
 	}
 	public function logInfo($message)
 	{
-		$this->logMessage("info ", $message) . "\n";
+		$this->logMessage("Here is some info sir, ", $message) . "\n";
 	}
 	public function logError($message)
 	{
-		$this->logMessage("error ", $message) . "\n";
+		$this->logMessage("An error sir, ", $message) . "\n";
 	}
 	public function __destruct() {
 		echo "all done" . "\n";

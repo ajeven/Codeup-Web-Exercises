@@ -5,13 +5,44 @@ function pageController($dbc)
 {	
 	
 	if (Input::isPost()) {
-		$name = Input::getString('name');
-		$description = Input::getString('description');
-		$location = Input::getString('location');
-		$date_established = Input::get('date_established');
-		$area_in_acres = Input::getNumber('area_in_acres');
+		$message = 'This field requires string input';
+		$message1 = 'This field requires numeric input';
+		try
+		{
+			$name = Input::getString('name');
+		} catch (Exception $e)
+		{
+			 $e->getMessage() . PHP_EOL;
+		}
+		try
+		{
+			$description = Input::getString('description');
+		} catch (Exception $e)
+		{
+			 $e->getMessage() . PHP_EOL;
+		}
+		try
+		{
+			$area_in_acres = Input::getString('area_in_acres');
+		} catch (Exception $e)
+		{
+			 $e->getMessage() . PHP_EOL;
+		}
+		try
+		{
+			$location = Input::getString('location');
+		} catch (Exception $e)
+		{
+			 $e->getMessage() . PHP_EOL;
+		}
+		try
+		{
+			$date_established = Input::get('date_established');
+		} catch (Exception $e)
+		{
+			 $e->getMessage() . PHP_EOL;
+		}
 		
-
 		$sql= 'INSERT INTO national_parks (name, description, location, date_established, area_in_acres)
 			VALUES (:name, :description, :location, :date_established, :area_in_acres)';
 			$stmt = $dbc->prepare($sql);
@@ -93,6 +124,9 @@ extract(pageController($dbc));
 									<li><a href="?page=1">1</a></li>
 									<li><a href="?page=2">2</a></li>
 									<li><a href="?page=3">3</a></li>
+									<li><a href="?page=4">4</a></li>
+									<li><a href="?page=5">5</a></li>
+									<li><a href="?page=6">6</a></li>
 								</ul>
 						  </nav>
 							<td>
@@ -104,6 +138,9 @@ extract(pageController($dbc));
 											name="name"
 											id="name"
 											placeholder="Add Name"
+											<?php if (Input::has($key)) { ?>
+											<?= $key  ?>
+											<?php } ?>
 											
 										>
 									<label for="description">Description</label>
@@ -113,6 +150,9 @@ extract(pageController($dbc));
 											name="description"
 											id="description"
 											placeholder="Add Description"
+											<?php if (Input::has($key)) { ?>
+											<?= $key  ?>
+											<?php } ?>
 											
 										>
 									<label for="location">Location</label>
@@ -122,6 +162,9 @@ extract(pageController($dbc));
 											name="location"
 											id="location"
 											placeholder="Add Location"
+											<?php if (Input::has($key)) { ?>
+											<?= $key  ?>
+											<?php } ?>
 											
 										>
 									<label for="area_in_acres">Area</label>
@@ -131,6 +174,9 @@ extract(pageController($dbc));
 											name="area_in_acres"
 											id="area_in_acres"
 											placeholder="Add Area"
+											<?php if (Input::has($key)) { ?>
+											<?= $key  ?>
+											<?php } ?>
 											
 										>
 									<label for="date_established">Date</label>
@@ -140,6 +186,9 @@ extract(pageController($dbc));
 											name="date_established"
 											id="date_established"
 											placeholder="Add Date"
+											<?php if (Input::has($key)) { ?>
+											<?= $key  ?>
+											<?php } ?>
 											
 										>
 									<button type='submit' class='btn btn-info'>
