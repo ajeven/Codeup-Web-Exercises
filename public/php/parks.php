@@ -5,8 +5,6 @@ function pageController($dbc)
 {	
 	
 	if (Input::isPost()) {
-		$message = 'This field requires string input';
-		$message1 = 'This field requires numeric input';
 		try
 		{
 			$name = Input::getString('name');
