@@ -13,13 +13,7 @@ class User extends Model
         $sql= 'INSERT INTO users (name, password, email)
             VALUES (:name, :password, :email)';
         $stmt = self::$dbc->prepare($sql);
-        // @TODO: You will need to iterate through all the attributes to build the prepared query
-        $stmt->bindValue(':name', $this->attributes['name'], PDO::PARAM_STR);
-        $stmt->bindValue(':password', $this->attributes['password'], PDO::PARAM_STR);
-        $stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
-        $stmt->execute();
-        // @TODO: After the insert, add the id back to the attributes array
-        //        so the object properly represents a DB record
+        $this->execute($stmt);
         $this->attributes['id'] = self::$dbc->lastInsertId();
        
     }
@@ -28,11 +22,16 @@ class User extends Model
     protected function update()
     {
         // @TODO: Use prepared statements to ensure data security
-        $sql= 'UPDATE users (name, password, email)
-            VALUES (:name, :password, :email)
-            WHERE id = ($id)';
-        $stmt = $dbc->prepare($sql);
-        // @TODO: You will need to iterate through all the attributes to build the prepared query
+        $sql= 'UPDATE users SET (name = :name, password = :password, email = :email)
+            WHERE id = :id';
+        $stmt = self::$dbc->prepare($sql);
+        $this->execute($stmt);
+        
+    }
+
+    private function execute($stmt)
+    {
+        //Duplicate code from insert/update methods moved more cleaner code base.
         $stmt->bindValue(':name', $this->attributes['name'], PDO::PARAM_STR);
         $stmt->bindValue(':password', $this->attributes['password'], PDO::PARAM_STR);
         $stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
@@ -62,7 +61,6 @@ class User extends Model
         {
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
         }
-        var_dump($result);
         // The following code will set the attributes on the calling object based on the result variable's contents
         $instance = null;
         if ($result) 
@@ -85,9 +83,17 @@ class User extends Model
         $didExec = $stmt->execute();
         if ($didExec)
         {
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         return $result;
         // @TODO: Learning from the find method, return all the matching records
+    }
+    public static function delete($id)
+    {
+        self::dbConnect();
+        $sql = 'DELETE FROM users WHERE id = :id';
+        $stmt = self::$dbc->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
     }
 }

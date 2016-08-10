@@ -1,14 +1,14 @@
 <?php
 require_once 'User.php';
 
-$user = new User();
-$user->name = 'Alan Even';
-$user->email = 'alan@dont-care.info';
-$user->password = 'testpass';
-$user->save();
+// $user = new User();
+// $user->name = 'Alan Even';
+// $user->email = 'alan@dont-care.info';
+// $user->password = 'testpass';
+// $user->save();
 
-$users = User::all();
-var_dump($users);
+$users = User::delete(1);
 
-$find = User::find(1);
-var_dump($find);
+
+// $find = User::find(13);
+// var_dump($find);
