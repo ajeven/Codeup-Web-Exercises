@@ -8,7 +8,7 @@ var myNameIs = "Alan"; // TODO: Fill in your name here.
 // TODO: Call the function 'sayHello' passing the variable 'myNameIs' as a parameter.
 
 function sayHello(name) {
-	console.log("Hello " + name)
+	console.log("Hello " + myNameIs)
 }
 
 
